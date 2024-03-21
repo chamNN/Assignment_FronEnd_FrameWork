@@ -1,0 +1,153 @@
+<%- include('header') %>
+
+    <body>
+
+        <!-- Nav -->
+
+        <%- include('nav') %>
+
+        <!-- Chưa dùng được -->
+            <!-- The Modal  -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Xóa thành công
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="card">
+                <div class="card-header">
+                    <form action="" method="get" class="form-inline" role="form">
+                        <div class="form-group">
+                            <input  class="form-control" name="name" placeholder="Tên sản phẩm">
+                        </div>
+                        <button type="submit" class="btn btn-primary" > <i class="fa fa-search"></i></button>
+                        <a style="width: 100px; color: rgb(82, 80, 80); margin-left: 60%;" href="/them-san-pham" class="btn btn-primary "><i
+                            class="fas fa-plus me-2"></i>Thêm</a>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div class="container mt-5">
+                        <div class="panel panel-default">
+                            <div class="panel panel-heading mb-4 text-center " style="font-size: 25px">
+                                DANH SÁCH SẢN PHẨM
+                            </div>
+                            <div class="panel panel-body">
+                                <table class="table table-bordered table-condensed">
+                                    <thead style="background-color: rgb(250, 229, 143);">
+                                        <tr>
+                                            <!-- <th>Mã Sản Phẩm</th> -->
+                                            <th>Hình Ảnh</th>
+                                            <th>Tên Sản Phẩm</th>
+
+                                            <th>Giá</th>
+                                            <th>Số Lượng</th>
+                                            <th>Loại Sản Phẩm</th>
+                                            <th>Mô tả</th>
+                                            <th style="width: 90px;"></th>
+                                            <th style="width: 90px;"></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <% data.map(function(sp) { %>
+                                            <tr>
+                                                <!-- <td>
+                                                    <%= sp.ID %>
+                                                </td> -->
+                                                <td><img height="120px" width="100px" src="img/<%= sp.tenhinhanh %>"
+                                                        alt=""></td>
+                                                <td>
+                                                    <%= sp.TenSanPham %>
+                                                </td>
+                                                <td>
+                                                    <%= sp.Gia %>
+                                                </td>
+                                                <td>
+                                                    <%= sp.soLuong %>
+                                                </td>
+                                                <td>
+                                                    <%= sp.loai %>
+                                                </td>
+                                                <td>
+                                                    <%= sp.mota %>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="/sua-san-pham/<%= sp.ID %>" style="text-decoration: none; font-weight: 510;"><i
+                                                            class="fas fa-edit me-1"></i>Sửa</a>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="/xoa-san-pham/<%= sp.ID %>" 
+                                                        data-bs-toggle="modal" data-bs-target="#myModal"
+                                                        style="text-decoration: none; font-weight: 510; color: rgba(211, 59, 59, 0.91);">
+                                                        <i class="fas fa-trash me-1"></i>Xóa</a>
+                                                </td>
+                                            </tr>
+                                            <% }); %>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                            <a class="page-link" href="/danh-sach?page=<%= currentPage - 1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <% for(let i = 1; i <= totalPage; i++) { %>
+                            <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                                <a class="page-link" href="/danh-sach?page=<%= i %>"><%= i %></a>
+                            </li>
+                        <% } %>
+                        <li class="page-item <%= currentPage === totalPage ? 'disabled' : '' %>">
+                            <a class="page-link" href="/danh-sach?page=<%= currentPage + 1 %>">Next</a>
+                        </li>
+                    </ul>
+                </div>
+                
+
+
+            </div>
+
+            
+            <!-- Footer Start -->
+
+            <!-- JavaScript Libraries -->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+            <script src="lib/easing/easing.min.js"></script>
+            <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+            <!-- Contact Javascript File -->
+            <script src="mail/jqBootstrapValidation.min.js"></script>
+            <script src="mail/contact.js"></script>
+
+            <!-- Template Javascript -->
+            <script src="js/main.js"></script>
+    </body>
+
+    </html>

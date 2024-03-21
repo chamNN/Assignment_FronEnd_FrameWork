@@ -1,0 +1,95 @@
+
+
+<%- include('header') %>
+<body >
+
+    <!-- Nav -->
+
+    <%- include('nav') %>
+
+    
+    
+        <!-- Form -->
+        <div class="container-fluid">
+            <div class="row px-xl-5">
+                <div class="col-lg-8">
+                    <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Thêm sản phẩm</span></h5>
+                    <div class="bg-light p-30 mb-5">
+                        <form id="formThemSP" method="POST" role="form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    
+                                    <img id="HinhAnh" src="#" alt="" style="max-width: 60%; height: 70%;">
+                                    
+                                    <input name="tenhinhanh" class="form-control" type="file" accept="img/*">
+                                </div>
+                                
+                                <div class="col-md-6 form-group">
+                                    <label for="tenSP">Tên sản phẩm</label>
+                                    <input name="TenSanPham" class="form-control" type="text">
+                                </div>
+                               
+                                <div class="col-md-6 form-group">
+                                    <label for="giaSP">Giá sản phẩm</label>
+                                    <input name="Gia"  class="form-control" type="number" placeholder="">
+                                </div>
+                               
+                                <div class="col-md-6 form-group">
+                                    <label for="soLuong">Số lượng</label>
+                                    <input name="soLuong" class="form-control" type="number" placeholder="">
+                                </div>
+                                
+                                <div class="col-md-6 form-group">
+                                    <label for="loai">Loại sản phẩm</label>
+                                    <select name="loai" class="custom-select">
+                                        <option value="Áo" selected>ÁO</option>
+                                        <option value="Quần">Quần</option>
+                                        <option value="Váy">Áo khoác</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="mota">Mô tả</label>
+                                    <textarea name="mota"  cols="5" rows="3" class="form-control" placeholder="Mô tả" style="resize: none;"></textarea>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary mr-2" ><i class="fas fa-save me-1"></i>Thêm</button>
+
+                                    <a href="/danh-sach" class="btn btn-secondary ">
+                                        <i class="fas fa-arrow-x me-1"></i> Hủy
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // sự kiện change của input file
+            document.querySelector('input[name="tenhinhanh"]').addEventListener('change', function(event) {
+                // lấy id của img để hiển thị hình ảnh
+                var previewImage = document.querySelector('#HinhAnh');
+                // Kiểm tra xem có tập tin được chọn không
+                if (event.target.files && event.target.files[0]) {
+                    var reader = new FileReader();
+                    // Đọc tập tin dưới dạng URL
+                    reader.onload = function(e) {
+                        // Cập nhật src của thẻ img để hiển thị hình ảnh
+                        previewImage.src = e.target.result;
+                    }
+                    // Đọc tập tin như là một URL
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            });
+        </script>
+        
+        <!-- Footer Start -->
+    <%- include('footer') %>
+
+</body>
+</html>

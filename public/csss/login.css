@@ -1,0 +1,147 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container
+{
+    
+	width: 100%;
+	background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),url('bg-2.png');
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	height: 100vh; /* vh: viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+a
+{
+    text-decoration: none;
+    color: palevioletred;
+    font-size: 28px;
+}
+/* #login-form
+{
+    
+} */
+.form-box
+{
+	border-radius: 10px;
+
+    width:580px;
+	height:480px;
+	position:relative;
+	margin:2% auto;
+	background:rgba(0,0,0,0.4);
+	padding:10px;
+    overflow: hidden;
+}
+.form-boxs
+{
+	border-radius: 10px;
+
+    width:780px;
+	height:770px;
+	position:relative;
+	margin:2% auto;
+	background:rgba(0,0,0,0.4);
+	padding:10px;
+    overflow: hidden;
+}
+.button-box
+{
+	width:250px;
+	margin:35px auto;
+	position:relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 30px;
+}
+.toggle-btn
+{
+	padding:10px 30px;
+	cursor:pointer;
+	background:transparent;
+	border:0;
+	outline: none;
+	position: relative;
+}
+#btn
+{
+	top: 0;
+	left:0;
+	position: absolute;
+	width: 140px;
+	height: 100%;
+	background: #F3C693;
+	border-radius: 30px;
+	transition: .5s;
+}
+.input-dangNhap
+{
+	
+	top: 150px;
+	position:absolute;
+	width:350px;
+	transition:.5s;
+}
+.input-dangKy
+{
+	
+    top: 120px;
+	position:absolute;
+	width:350px;
+	transition:.5s;
+}
+.input-field
+{
+	width: 100%;
+	padding:10px 0;
+	margin:5px 0;
+	border-left:0;
+	border-top:0;
+	border-right:0;
+	border-bottom: 1px solid #999;
+	outline:none;
+	background: transparent;
+}
+.submit-btn
+{
+	width: 75%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: #F3C693;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+.check-box
+{
+
+	margin: 30px 10px 34px 0;
+}
+span
+{
+	color:#979595;
+	font-size:15px;
+	bottom:68px;
+	position:absolute;
+	font-weight: 100;
+}
+
+#login input
+{
+	color:rgb(223, 214, 192);
+	font-size:15;
+}
+
+#register input
+{
+	color:rgb(223, 214, 192);
+	font-size: 15;
+}

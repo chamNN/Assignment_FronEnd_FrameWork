@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="csss/login.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .sang-dangky{
+            color: rgb(255, 243, 225);
+            margin-top: 340px;
+            margin-left: 35%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <img class="background-image" src="Images/login.jpg" height="900px" width="100%" alt="Background Image">
+        <div style="margin-left: 2%;">
+            <div id='login-form' class='login-page'>
+                <div class="form-box">
+                    <form id='login' method="POST" class='input-dangNhap' action="" style="margin-left: 20%; margin-top: -90px;">
+                        <label for="s" style="color: rgb(254, 228, 194); font-size: 30px; padding-left: 22%;">Đăng nhập</label>
+                        <input style="margin-top: 30px;" type='text' class='input-field' name="email" placeholder='Email' required>
+                        <input type='password' id="MatKhau" name="matkhau" class='input-field' placeholder='Mật khẩu' required>
+                        <input type='checkbox' class='check-box' id="showpassword" onclick='hienThiMatKhauDangNhap()'>
+                        <span>Hiển thị mật khẩu</span>
+                        <button type='submit' class='submit-btn'>Đăng nhập</button>
+                    </form>
+                    <div class="sang-dangky">
+                        <label class="chuataikhoan" for="">Bạn chưa có tài khoản?  <a style="font-size: 16px;" href="/dang-ky">Đăng ký</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        function hienThiMatKhauDangNhap() {
+            var checkbox = document.getElementById('showpassword');
+            var matKhau = document.getElementById('MatKhau');
+            if (checkbox.checked) {
+                matKhau.type = 'text';
+            } else {
+                matKhau.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>

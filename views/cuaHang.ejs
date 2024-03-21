@@ -1,0 +1,83 @@
+<%- include('header') %>
+
+    <body ng-app="myapp" ng-controller="myctrl">
+
+        <!-- Nav -->
+
+        <%- include('nav') %>
+
+
+
+            <div class="container-fluid">
+                <div class="row px-xl-5">
+                    <div class="col-12">
+                        <nav class="breadcrumb bg-light mb-30">
+                            <a class="breadcrumb-item text-dark" href="#">Trang chủ</a>
+                            <span class="breadcrumb-item active">Cửa hàng</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tìm kiếm -->
+            <form action="" method="get" class="form-inline" role="form" >
+                <div class="form-group" style="margin-left: 60px;">
+                    <input  type="text" class="form-control" name="name" placeholder="Tên sản phẩm">
+                </div>
+                <button type="submit" class="btn btn-primary" > <i class="fa fa-search"></i></button>
+                
+            </form>
+
+            <!-- Sản phẩm  -->
+            <div class="container-fluid pt-5 pb-3">
+                <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
+                        class="bg-secondary pr-3">Sản phẩm</span></h2>
+                <div class="row px-xl-5">
+                    <!-- xuất snar phẩm -->
+                    <% data.map(function(sp) { %>
+                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                            <div class="product-item bg-light mb-4">
+                                <a class="text-decoration-none" href="#">
+                                    <div class="product-img position-relative overflow-hidden">
+                                        <img style="height: 350px; width: 300px; text-align: center;"
+                                        src="img/<%= sp.tenhinhanh %>" alt="">
+                                    </div>
+                                    <div class="text-center py-4">
+                                        <h6><%= sp.TenSanPham %></h6>
+                                        <div class="d-flex align-items-center justify-content-center mt-2">
+                                            <h5><%= sp.Gia %></h5>
+                                            <h6 class="text-muted ml-2"><del>220.000</del></h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+            <!--  Sản phẩm end -->
+
+            <!-- Phân trang -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="pagination justify-content-center" style="margin-left: 80%;">
+                        <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                            <a class="page-link" href="/cua-hang?page=<%= currentPage - 1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <% for(let i = 1; i <= totalPage; i++) { %>
+                            <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                                <a class="page-link" href="/cua-hang?page=<%= i %>"><%= i %></a>
+                            </li>
+                        <% } %>
+                        <li class="page-item <%= currentPage === totalPage ? 'disabled' : '' %>">
+                            <a class="page-link" href="/cua-hang?page=<%= currentPage + 1 %>">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Start -->
+            <%- include('footer') %>
+
+    </body>
+
+    </html>
