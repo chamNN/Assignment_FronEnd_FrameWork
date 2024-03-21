@@ -11,7 +11,7 @@ const { read } = require('node:fs');
 app.use(bodyParser.urlencoded({
      extended: false 
 }));
-//
+//theoeadassasform
 const query = until.promisify(ketNoi.query).bind(ketNoi);
 
 app.use(express.static('public'));
